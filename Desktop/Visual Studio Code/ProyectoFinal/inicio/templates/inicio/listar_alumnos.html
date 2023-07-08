@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Alumnos</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Alumnos
+{% endblock h1_header %}
+
+{% block contenido %}
+<button>
+    <a class="navbar-brand" href={% url 'inicio:crear_alumno'%}>Crear Alumno</a>
+</button>
+<form action="" method="get">
+    {{formulario}}
+    <button>Buscar</button>
+</form>
+
+{% if alumnos %}
+{% for alumno in alumnos %}
+<li>Nombre: {{alumno.nombre}} - Apellido: {{alumno.apellido}} - DNI:{{alumno.dni}}</li>
+{% endfor %}
+{% else %}
+<p>No se encontro al Alumno.</p>
+{% endif %}
+{% endblock contenido %}
